@@ -27,7 +27,7 @@ class File(Base):
     songs = relationship("Song", backref="file")
     
     def as_dictionary(self):
-        file = {"id" : self.id, "name": self.name}
+        file = {"id" : self.id, "name": self.name, "path": url_for("uploaded_file", filename=self.name)}
         return file
     
 Base.metadata.create_all(engine)
